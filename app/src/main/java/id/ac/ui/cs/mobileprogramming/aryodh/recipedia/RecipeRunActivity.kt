@@ -1,36 +1,24 @@
 package id.ac.ui.cs.mobileprogramming.aryodh.recipedia
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.TextView
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.adapter.RecipeAdapter
-import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.adapter.ResultAdapter
-import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Recipe
-import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.viewmodel.RecipeDetailViewModel
-import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.viewmodel.RecipeViewModel
-import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.viewmodel.ResultViewModel
-import kotlinx.android.synthetic.main.recipe_book.*
-import kotlinx.android.synthetic.main.recipe_book.recipe_recycler_view
-import kotlinx.android.synthetic.main.recipe_detail.*
 import kotlinx.android.synthetic.main.recipe_detail.recipe_detail_title
 import kotlinx.android.synthetic.main.recipe_run.*
-import org.w3c.dom.Text
 import java.lang.Thread.sleep
 import java.util.concurrent.Executors
 
 class RecipeRunActivity : AppCompatActivity() {
     private var stepCounter: Int = 0
     private var stepLimit: Int = 0
+    private var recipeId: Int = 0
     private lateinit var name: String
     private lateinit var titleList: List<String>
     private lateinit var detailList: List<String>
     private lateinit var timeList: List<String>
-    private val timerExecutor = Executors.newFixedThreadPool(1)
+    private val timerExecutor = Executors.newFixedThreadPool(2)
     private var isRunning: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +27,7 @@ class RecipeRunActivity : AppCompatActivity() {
 
         val extras = intent.extras
         if (extras != null) {
+            recipeId = extras.getString("recipeId")?.toInt()!!
             name = extras.getString("name").toString()
             titleList = extras.getString("title")?.split(";")!!
             detailList = extras.getString("detail")?.split(";")!!
@@ -48,6 +37,12 @@ class RecipeRunActivity : AppCompatActivity() {
         setUpScreen(stepCounter)
 
         next_button.setOnClickListener{
+            if (stepCounter == stepLimit - 1) {
+                val intent = Intent(this, RecipeFinishActivity::class.java)
+                intent.putExtra("recipeId",recipeId.toString())
+                intent.putExtra("name",name)
+                this.startActivity(intent)
+            }
             if (stepCounter < stepLimit - 1) {
                 stepCounter++
                 updateData(stepCounter)
@@ -102,25 +97,27 @@ class RecipeRunActivity : AppCompatActivity() {
     private fun startTimer(time: Int) {
         var currentTime: Int = time
         val worker = Runnable {
+            isRunning = true
             while (currentTime > 0 && isRunning) {
                 timer.text = converterTime(currentTime.toString())
                 Log.d("Time", converterTime(currentTime.toString()))
                 currentTime -= 1
                 sleep(1000)
             }
-            if (isRunning) stopwatchfinsih()
+            if (isRunning) {
+                stopwatchfinsih()
+            }
 
         }
         timerExecutor.execute(worker)
-        isRunning = true
         play_run_text.text = "Stop"
     }
 
     private fun stopwatchfinsih() {
         isRunning = false
+        timer.text = "Times Up"
+        play_run_text.text = "Reset"
         this@RecipeRunActivity.runOnUiThread(java.lang.Runnable {
-            timer.text = "Times Up"
-            play_run_text.text = "Reset"
             next_button.visibility = View.VISIBLE
             if (stepCounter != 0) {
                 back_button.visibility = View.VISIBLE

@@ -47,6 +47,7 @@ class RecipeDetailActivity : AppCompatActivity() {
 
         findViewById<CardView>(R.id.play_button).setOnClickListener {
             val intent = Intent(this, RecipeRunActivity::class.java)
+            intent.putExtra("recipeId",recipe.id.toString())
             intent.putExtra("name",recipe.name)
             intent.putExtra("title",recipe.recipe_title_list)
             intent.putExtra("detail",recipe.recipe_detail_list)
