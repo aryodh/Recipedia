@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Recipedia</string>
+    <string name="recipe_book_title">Recipe Book</string>
+    <string name="profile_menu">Profile</string>
+    <string name="lets_cook">Let\'s Cook</string>
+    <string name="step_title">Steps:</string>
+    <string name="recipe_result">Previous Result:</string>
+    <string name="start">Start</string>
+    <string name="lorem_ipsum">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy.</string>
+</resources>
