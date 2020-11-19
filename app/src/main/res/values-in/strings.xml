@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Recipedia</string>
     <string name="recipe_book_title">Buku Resep</string>
-    <string name="hello">Halo, </string>
+    <string name="hello">Halo, Chef!</string>
     <string name="profile_menu">Profil</string>
     <string name="lets_cook">Ayo Masak</string>
     <string name="estimation">Perkiraan Waktu: </string>
@@ -18,6 +18,11 @@
     <string name="submit">Simpan</string>
     <string name="review_hint">Resepnya sangat enak</string>
     <string name="tips_title">Tips</string>
+    <string name="chef_title">Chef</string>
+    <string name="note_title">Catatan</string>
+    <string name="add_note">Tambah Catatan</string>
+    <string name="add_note_title_hint">Judul catatan</string>
+    <string name="contact_title">Kontak Chef</string>
     <string name="version">Recipedia Version 0.0.1</string>
     <string name="made_by">oleh Aryo Tinulardhi</string>
 

@@ -6,8 +6,6 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
-import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Tips
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,13 +23,18 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
 
-        recipe_menu.setOnClickListener{
+        recipe_card.setOnClickListener{
             startActivity(Intent(this, RecipeBookActivity::class.java).putExtra("data", "data1"))
             this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
 
-        profile_menu.setOnClickListener{
-            startActivity(Intent(this, TipsActivity::class.java))
+        notes_card.setOnClickListener{
+            startActivity(Intent(this, NoteActivity::class.java))
+            this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        }
+
+        chef_card.setOnClickListener{
+            startActivity(Intent(this, ChefActivity::class.java))
             this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
 

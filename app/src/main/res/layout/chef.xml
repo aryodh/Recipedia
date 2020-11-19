@@ -15,33 +15,44 @@ tools:context=".MainActivity">
     tools:context=".ui.main.MainFragment">
 
     <TextView
-        android:id="@+id/tips_title"
+        android:id="@+id/chef_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="32dp"
         android:layout_marginTop="48dp"
         app:layout_constraintTop_toTopOf="parent"
         android:textAlignment="center"
-        android:text="@string/tips_title"
+        android:text="@string/chef_title"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tips_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/chef_title"
+        android:textAlignment="center"
+        android:text="Loading..."
         android:gravity="center_horizontal" />
 
     <RelativeLayout
         android:id="@+id/recipe_steps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tips_title"
+        app:layout_constraintTop_toBottomOf="@+id/chef_title"
         android:layout_marginTop="32dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp">
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tips_recycler_view"
+            android:id="@+id/chef_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/tips_item"/>
+            tools:listitem="@layout/chef_item"/>
 
     </RelativeLayout>
 

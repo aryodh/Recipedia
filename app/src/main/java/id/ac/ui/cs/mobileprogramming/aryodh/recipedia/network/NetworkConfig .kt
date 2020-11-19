@@ -1,6 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.aryodh.recipedia.network
 
-import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Tips
+import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Chef
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -23,10 +23,10 @@ class NetworkConfig  {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    fun getService() = getRetrofit().create(TipsInterface::class.java)
+    fun getService() = getRetrofit().create(ChefInterface::class.java)
 }
 
-interface TipsInterface {
-    @GET("tips")
-    fun getTips(): Call<List<Tips>>
+interface ChefInterface {
+    @GET("chef")
+    fun getTips(): Call<List<Chef>>
 }

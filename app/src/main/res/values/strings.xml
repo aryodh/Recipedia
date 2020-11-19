@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Recipedia</string>
-    <string name="hello">Hello, </string>
+    <string name="hello">Hello, Chef!</string>
     <string name="recipe_book_title">Recipe Book</string>
     <string name="profile_menu">Profile</string>
     <string name="lets_cook">Let\'s Cook</string>
@@ -18,6 +18,11 @@
     <string name="submit">Save</string>
     <string name="review_hint">This recipe is very tasty</string>
     <string name="tips_title">Tips</string>
+    <string name="chef_title">Chef</string>
+    <string name="note_title">Notes</string>
+    <string name="add_note">Add Notes</string>
+    <string name="add_note_title_hint">Notes title</string>
+    <string name="contact_title">Contact Chef</string>
     <string name="version">Recipedia Version 0.0.1</string>
     <string name="made_by">by Aryo Tinulardhi</string>
 

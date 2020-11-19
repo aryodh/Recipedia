@@ -43,6 +43,7 @@ dependencies {
     // room
     implementation "android.arch.persistence.room:runtime:1.1.1"
     implementation 'androidx.room:room-ktx:2.2.1'
+    implementation 'com.google.android.material:material:1.0.0'
     kapt "androidx.room:room-compiler:2.2.1"
 
     // ViewModel
@@ -58,6 +59,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation "com.squareup.okhttp3:logging-interceptor:4.2.0"
     implementation 'org.glassfish:javax.annotation:10.0-b28'
+
+    // Floating action button
+    //noinspection GradleCompatible,GradleCompatible
+    compile 'com.android.support:design:23.1.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
