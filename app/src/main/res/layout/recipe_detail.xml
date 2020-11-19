@@ -28,7 +28,6 @@
             android:id="@+id/play_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +37,7 @@
                 android:id="@+id/recipe_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_centerVertical="true"
@@ -47,23 +46,48 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="36dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:textSize="18dp"
                 android:text="@string/lets_cook" />
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/estimation_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/play_button"
-            android:layout_marginTop="5dp"
-            android:textAlignment="center"
             android:gravity="center_horizontal"
-            android:text="Estimation Time: 60min"/>
+            >
+
+            <TextView
+                android:id="@+id/estimation_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/estimation"/>
+
+            <TextView
+                android:id="@+id/est_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5px"
+                android:text="60"/>
+
+            <TextView
+                android:id="@+id/time_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5px"
+                android:text="@string/time_unit"/>
+
+        </LinearLayout>
+
 
         <RelativeLayout
             android:id="@+id/recipe_steps"
@@ -93,7 +117,6 @@
                 android:layout_marginTop="24dp"
                 android:scrollbars="vertical"
                 tools:listitem="@layout/recipe_detail_item"/>
-
 
         </RelativeLayout>
 

@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface ResultDAO {
 
-    @Query("SELECT * FROM results WHERE recipe_id=:recipe_id")
+    @Query("SELECT * FROM results WHERE recipe_id=:recipe_id order by id DESC")
     fun getResults(recipe_id:Int): LiveData<List<Result>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

@@ -42,6 +42,7 @@ class RecipeDetailActivity : AppCompatActivity() {
         recipe = recipeDetailViewModel.getRecipe(recipeId)!!
 
         findViewById<TextView>(R.id.recipe_detail_title).text = recipe.name
+        est_time.text = recipe.total_time.toString()
         recyclerViewGenerator(recipe)
         recyclerViewResultGenerator(recipe.id)
 
@@ -52,7 +53,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             intent.putExtra("title",recipe.recipe_title_list)
             intent.putExtra("detail",recipe.recipe_detail_list)
             intent.putExtra("time",recipe.recipe_time)
-            this.startActivity(intent)
+            this.startActivityForResult(intent, 1)
         }
 //        recipeViewModel.deleteAll()
     }
@@ -76,5 +77,10 @@ class RecipeDetailActivity : AppCompatActivity() {
             Log.d("test result", it.toString())
             resultAdapter.setResults(it)
         })
+    }
+
+    override fun onBackPressed() {
+        this.finish()
+        overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
     }
 }

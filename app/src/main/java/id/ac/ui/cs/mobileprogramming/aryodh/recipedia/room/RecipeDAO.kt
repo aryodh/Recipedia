@@ -9,7 +9,7 @@ interface RecipeDAO {
     @Query("SELECT * FROM recipes")
     fun getRecipes(): LiveData<List<Recipe>>
 
-    @Query("SELECT * FROM recipes WHERE id=:id ")
+    @Query("SELECT * FROM recipes WHERE id=:id order by id DESC")
     fun getRecipe(id: Int): Recipe
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

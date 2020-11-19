@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.repository.ResultRepository
+import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Recipe
 import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Result
 
 class ResultViewModel(application: Application) : AndroidViewModel(application) {
@@ -14,5 +15,9 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
     fun getResults(recipe_id: Int): LiveData<List<Result>> {
         results = resultRepository.getResults(recipe_id)!!
         return results
+    }
+
+    fun insert(result: Result) {
+        resultRepository.insert(result)
     }
 }

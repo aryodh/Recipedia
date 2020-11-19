@@ -1,5 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.aryodh.recipedia.adapter
 
+import android.app.Activity
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -49,8 +51,10 @@ class RecipeAdapter(private val context: Context?) :
             itemView.recipe_name.text = recipe.name
             itemView.setOnClickListener {
                 val intent = Intent(context, RecipeDetailActivity::class.java)
-                intent.putExtra("id",recipe.id.toString())
+                intent.putExtra("id", recipe.id.toString())
                 context.startActivity(intent)
+                val activity = context as Activity
+                activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         }
     }

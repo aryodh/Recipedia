@@ -1,10 +1,15 @@
 package id.ac.ui.cs.mobileprogramming.aryodh.recipedia
 
-import android.content.Intent
+import android.content.*
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.app.NotificationCompat
+import androidx.lifecycle.ViewModelProvider
+import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Recipe
+import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.viewmodel.RecipeDetailViewModel
 import kotlinx.android.synthetic.main.recipe_detail.recipe_detail_title
 import kotlinx.android.synthetic.main.recipe_run.*
 import java.lang.Thread.sleep
@@ -21,6 +26,13 @@ class RecipeRunActivity : AppCompatActivity() {
     private val timerExecutor = Executors.newFixedThreadPool(2)
     private var isRunning: Boolean = false
 
+    private lateinit var recipeDetailViewModel: RecipeDetailViewModel
+    private lateinit var recipe: Recipe
+
+    private lateinit var sharedPref: SharedPreferences
+
+    private val broadcastReceiver: BroadcastReceiver = RecipeBroadcastReceiver()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recipe_run)
@@ -28,11 +40,26 @@ class RecipeRunActivity : AppCompatActivity() {
         val extras = intent.extras
         if (extras != null) {
             recipeId = extras.getString("recipeId")?.toInt()!!
-            name = extras.getString("name").toString()
-            titleList = extras.getString("title")?.split(";")!!
-            detailList = extras.getString("detail")?.split(";")!!
-            timeList = extras.getString("time")?.split(";")!!
         }
+
+        recipeDetailViewModel = ViewModelProvider(this).get(RecipeDetailViewModel::class.java)
+        recipe = recipeDetailViewModel.getRecipe(recipeId)!!
+
+        name = recipe.name
+        titleList = recipe.recipe_title_list.split(";")!!
+        detailList = recipe.recipe_detail_list.split(";")!!
+        timeList = recipe.recipe_time.split(";")!!
+
+        sharedPref = this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        Log.d("test boolean", sharedPref.getBoolean("fromBR", false).toString())
+
+        if (sharedPref.getBoolean("fromBR", false)) super.onBackPressed()
+
+        val editor: SharedPreferences.Editor = sharedPref.edit()
+        editor.putInt("recipeId", recipeId)
+        editor.putBoolean("fromBR", true)
+        editor.apply()
+        Log.d("SharedPref", sharedPref.getInt("recipe_id", 0).toString())
 
         setUpScreen(stepCounter)
 
@@ -41,7 +68,7 @@ class RecipeRunActivity : AppCompatActivity() {
                 val intent = Intent(this, RecipeFinishActivity::class.java)
                 intent.putExtra("recipeId",recipeId.toString())
                 intent.putExtra("name",name)
-                this.startActivity(intent)
+                this.startActivityForResult(intent, 1)
             }
             if (stepCounter < stepLimit - 1) {
                 stepCounter++
@@ -50,7 +77,7 @@ class RecipeRunActivity : AppCompatActivity() {
                 timer.text = converterTime(timeList[stepCounter])
             }
             if (stepCounter == stepLimit - 1) {
-                next_button_text.text = "Finish"
+                next_button_text.text = getString(R.string.finish)
             }
 
         }
@@ -59,7 +86,7 @@ class RecipeRunActivity : AppCompatActivity() {
             if (stepCounter > 0) {
                 stepCounter--
                 updateData(stepCounter)
-                next_button_text.text = "Next"
+                next_button_text.text = getString(R.string.next)
                 timer.text = converterTime(timeList[stepCounter])
             }
             if (stepCounter == 0) {
@@ -117,6 +144,13 @@ class RecipeRunActivity : AppCompatActivity() {
         isRunning = false
         timer.text = "Times Up"
         play_run_text.text = "Reset"
+
+        // Broadcast
+        val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
+            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+        }
+        registerReceiver(broadcastReceiver, filter)
+
         this@RecipeRunActivity.runOnUiThread(java.lang.Runnable {
             next_button.visibility = View.VISIBLE
             if (stepCounter != 0) {
@@ -129,7 +163,7 @@ class RecipeRunActivity : AppCompatActivity() {
         recipe_detail_number.text = (stepCounter+1).toString()
         recipe_detail_content.text = titleList[stepCounter]
         recipe_specific_content.text = detailList[stepCounter]
-        play_run_text.text = "Start"
+        play_run_text.text = getString(R.string.start)
     }
 
     private fun converterTime(time: String): String {
@@ -151,5 +185,18 @@ class RecipeRunActivity : AppCompatActivity() {
         }
 
         return "$minString:$secString"
+    }
+
+    override fun onActivityResult(requestCode:Int, resultCode:Int, data:Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        this.finish()
+    }
+
+    override fun onDestroy() {
+        val editor: SharedPreferences.Editor = sharedPref.edit()
+        editor.putBoolean("fromBR", false)
+        editor.apply()
+        Log.d("onDestroy", "Calleeeeddd!!")
+        super.onDestroy()
     }
 }

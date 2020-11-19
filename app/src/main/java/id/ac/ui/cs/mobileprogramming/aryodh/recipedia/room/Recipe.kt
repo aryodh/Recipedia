@@ -3,6 +3,9 @@ package id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
+import retrofit2.Call
+import retrofit2.http.GET
 
 @Entity(tableName = "recipes")
 data class Recipe (
@@ -44,4 +47,17 @@ data class Result (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int = 0
+)
+
+data class Tips (
+
+    @field:SerializedName("id")
+    val id: Int? = null,
+
+    @field:SerializedName("title")
+    var title: String,
+
+    @field:SerializedName("content")
+    var content: String,
+
 )

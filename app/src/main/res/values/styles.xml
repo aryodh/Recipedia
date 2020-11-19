@@ -12,4 +12,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="BackGroundImageView">
+        <item name="android:alpha">0.25</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
 </resources>

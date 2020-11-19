@@ -6,6 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        style="@style/BackGroundImageView"
+        android:id="@+id/image_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <TextView
         android:id="@+id/recipe_finish_title"
         android:layout_width="match_parent"
@@ -85,7 +93,7 @@
             android:layout_height="42dp"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/review_content"
-            android:text="Take a photo"
+            android:text="@string/photo"
             android:textColor="@color/whiteText"
             android:background="@color/buttonPictureColor"/>
 
@@ -96,7 +104,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/photo_button"
             android:layout_marginTop="8dp"
-            android:text="Submit"
+            android:text="@string/submit"
             android:textColor="@color/whiteText"
             android:background="@color/buttonSubmitColor"/>
 
@@ -107,7 +115,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/submit_button"
             android:layout_marginTop="48dp"
-            android:text="Home"
+            android:text="@string/recipe_book_title"
             android:textColor="@color/whiteText"
             android:background="@color/midnightBlue"/>
 

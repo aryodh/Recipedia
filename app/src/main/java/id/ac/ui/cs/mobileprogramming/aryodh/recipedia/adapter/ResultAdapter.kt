@@ -1,6 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.aryodh.recipedia.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -47,6 +48,9 @@ class ResultAdapter(private val context: Context?) :
             itemView.previous_result_content.text = result.content
             itemView.previous_result_date.text = result.date
             itemView.previous_result_image.setImageResource(R.drawable.rendang)
+            val imgUri: Uri = Uri.parse(result.image)
+            itemView.previous_result_image.setImageURI(null)
+            itemView.previous_result_image.setImageURI(imgUri)
         }
     }
 }
