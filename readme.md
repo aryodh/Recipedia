@@ -4,7 +4,6 @@
 
 Stack: **Kotlin**
 
-
 ## Fitur
 Untuk melengkapi pengalaman pengguna dalam memasak, Recipedia menyediakan beebrapa fitur yang akan membantu pengguna mulai dari proses memasak hingga menyimpan review pengguna terhadap resep tersebut.
 
@@ -19,6 +18,11 @@ Untuk melengkapi pengalaman pengguna dalam memasak, Recipedia menyediakan beebra
 
 - **Kontak Chef**
 	> menyediakan daftar Chef yang dapat dikontak langsung melalui nomor telepon yang disediakan dan akan otomatis membuka aplikasi telepon dengan nomor chef yang dipilih
+
+## Preview
+![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/lkm8PiY.png =200x) ![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/Hl1T9QM.png =200x) ![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/zbgPgck.png =200x)![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/Gq5hCXs.png =200x)![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/tjO8DeR.png =200x)
+
+
 
 
 ## Owner
