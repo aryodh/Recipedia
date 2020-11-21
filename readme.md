@@ -23,9 +23,9 @@ Untuk melengkapi pengalaman pengguna dalam memasak, Recipedia menyediakan beebra
 
 ## Owner
 
-Nama 	: Aryo Tinulardhi
-NPM	: 1706039515
-Kelas	: B
+- Nama 	: Aryo Tinulardhi
+- NPM	: 1706039515
+- Kelas	: B
 
 
 ## Thanks to
