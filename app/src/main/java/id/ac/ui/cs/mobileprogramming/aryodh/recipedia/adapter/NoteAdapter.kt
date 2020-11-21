@@ -4,14 +4,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.R
 import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Note
+import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.note_item.view.*
 
-class NoteAdapter(private val context: Context?) :
+class NoteAdapter(private val context: Context?, noteViewModel: NoteViewModel) :
     RecyclerView.Adapter<NoteAdapter.ListViewHolder>() {
-
+    val noteViewModel = noteViewModel
     private var notes = listOf<Note>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -41,6 +43,9 @@ class NoteAdapter(private val context: Context?) :
         fun bindItem(context: Context, note: Note) {
             itemView.note_item_title.text = note.title
             itemView.note_item_content.text = note.content
+            itemView.delete_icon.setOnClickListener{
+                noteViewModel.delete(note)
+            }
         }
     }
 }

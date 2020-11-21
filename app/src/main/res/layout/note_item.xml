@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="10dp">
 
-    <LinearLayout
-        android:id="@+id/item_detail_card"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/note_item_title"
+        <LinearLayout
+            android:id="@+id/item_detail_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:padding="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/note_item_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="14dp"/>
+            <TextView
+                android:id="@+id/note_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/note_item_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_remove"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.cardview.widget.CardView>

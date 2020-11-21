@@ -14,7 +14,7 @@ abstract class RecipeDB: RoomDatabase() {
 
     abstract fun recipeDAO(): RecipeDAO
     abstract fun resultDAO(): ResultDAO
-    abstract fun noteDAO(): NoteDAO?
+    abstract fun noteDAO(): NoteDAO
 
     companion object {
 
@@ -39,6 +39,7 @@ abstract class RecipeDB: RoomDatabase() {
                             instance?.let {
                                 it.recipeDAO().insertAll(DataGenerator.getRecipe())
                                 it.resultDAO().insertAll(DataGenerator.getResults())
+                                it.noteDAO().insertAll(DataGenerator.getNotes())
                             }
                         }
                     }

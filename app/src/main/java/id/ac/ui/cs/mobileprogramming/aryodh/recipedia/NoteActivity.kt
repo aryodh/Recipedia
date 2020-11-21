@@ -27,9 +27,9 @@ class NoteActivity : AppCompatActivity() {
 
     private fun recyclerViewNoteGenerator() {
         note_recycler_view.layoutManager = LinearLayoutManager(this)
-        noteAdapter = NoteAdapter(this)
-        note_recycler_view.adapter = noteAdapter
         noteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
+        noteAdapter = NoteAdapter(this, noteViewModel)
+        note_recycler_view.adapter = noteAdapter
         noteViewModel.getNotes()?.observe(this, Observer {
             noteAdapter.setNotes(it)
         })
