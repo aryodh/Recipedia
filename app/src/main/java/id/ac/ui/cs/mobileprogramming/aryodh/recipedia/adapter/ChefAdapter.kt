@@ -5,7 +5,6 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.R
 import id.ac.ui.cs.mobileprogramming.aryodh.recipedia.room.Chef

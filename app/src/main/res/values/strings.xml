@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Recipedia</string>
     <string name="hello">Hello, Chef!</string>
+    <string name="welcome_to_recipedia">Welcome to Recipedia!</string>
     <string name="recipe_book_title">Recipe Book</string>
     <string name="profile_menu">Profile</string>
     <string name="lets_cook">Let\'s Cook</string>

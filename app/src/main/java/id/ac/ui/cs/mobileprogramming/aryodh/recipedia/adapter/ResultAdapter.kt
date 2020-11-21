@@ -47,7 +47,6 @@ class ResultAdapter(private val context: Context?) :
             Log.d("ResultAdapter", "bindItem")
             itemView.previous_result_content.text = result.content
             itemView.previous_result_date.text = result.date
-            itemView.previous_result_image.setImageResource(R.drawable.rendang)
             val imgUri: Uri = Uri.parse(result.image)
             itemView.previous_result_image.setImageURI(null)
             itemView.previous_result_image.setImageURI(imgUri)

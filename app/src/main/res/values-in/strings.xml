@@ -2,6 +2,7 @@
     <string name="app_name">Recipedia</string>
     <string name="recipe_book_title">Buku Resep</string>
     <string name="hello">Halo, Chef!</string>
+    <string name="welcome_to_recipedia">Selamat Datang di Recipedia!</string>
     <string name="profile_menu">Profil</string>
     <string name="lets_cook">Ayo Masak</string>
     <string name="estimation">Perkiraan Waktu: </string>

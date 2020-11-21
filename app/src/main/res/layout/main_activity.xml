@@ -52,7 +52,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Welcome to Recipedia!"
+                android:text="@string/welcome_to_recipedia"
                 android:textSize="14dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

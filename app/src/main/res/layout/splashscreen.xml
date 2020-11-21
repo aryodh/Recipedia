@@ -22,7 +22,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_undraw_cooking"
+            android:src="@drawable/undraw_cooking"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
