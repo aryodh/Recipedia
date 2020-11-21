@@ -20,7 +20,7 @@ Untuk melengkapi pengalaman pengguna dalam memasak, Recipedia menyediakan beebra
 	> menyediakan daftar Chef yang dapat dikontak langsung melalui nomor telepon yang disediakan dan akan otomatis membuka aplikasi telepon dengan nomor chef yang dipilih
 
 ## Preview
-![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/lkm8PiY.png) ![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/Hl1T9QM.png) ![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/zbgPgck.png)![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/Gq5hCXs.png)![lkm8PiY.png (404×864) (imgur.com)](https://i.imgur.com/tjO8DeR.png)
+![](https://i.imgur.com/CFKJq9C.png) ![](https://i.imgur.com/91TpJ9R.png) ![](https://i.imgur.com/nWphvor.png) ![](https://i.imgur.com/dVshyZX.png)
 
 
 
