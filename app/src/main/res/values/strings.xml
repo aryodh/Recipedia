@@ -22,7 +22,7 @@
     <string name="chef_title">Chef</string>
     <string name="note_title">Notes</string>
     <string name="add_note">Add Notes</string>
-    <string name="add_note_title_hint">Notes title</string>
+    <string name="add_note_title_hint">Notes content</string>
     <string name="contact_title">Contact Chef</string>
     <string name="version">Recipedia Version 0.0.1</string>
     <string name="made_by">by Aryo Tinulardhi</string>

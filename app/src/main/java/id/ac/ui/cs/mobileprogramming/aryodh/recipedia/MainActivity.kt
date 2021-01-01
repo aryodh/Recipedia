@@ -3,9 +3,12 @@ package id.ac.ui.cs.mobileprogramming.aryodh.recipedia
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
@@ -34,9 +37,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         chef_card.setOnClickListener{
-            startActivity(Intent(this, ChefActivity::class.java))
-            this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            if (isNetworkConnected(this)) {
+                startActivity(Intent(this, ChefActivity::class.java))
+                this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            } else {
+                Toast.makeText(applicationContext,"Not connected to network!", Toast.LENGTH_SHORT).show()
+            }
         }
 
+    }
+
+    fun isNetworkConnected(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        var activeNetworkInfo: NetworkInfo? = null
+        activeNetworkInfo = cm.activeNetworkInfo
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting
     }
 }
